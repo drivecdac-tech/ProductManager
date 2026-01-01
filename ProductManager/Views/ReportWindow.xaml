@@ -8,7 +8,7 @@
              Width="900">
 
     <Grid>
-        <dxp:DocumentPreviewControl x:Name="reportViewer"/>
+        <dxp:DocumentPreviewControl x:Name="Preview"/>
     </Grid>
 
 </dx:DXWindow>

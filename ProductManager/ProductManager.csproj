@@ -235,6 +235,7 @@
       <DependentUpon>202601010959598_InitialCreate1.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Orders.cs" />
+    <Compile Include="Reports\OrdersReport.cs" />
     <Compile Include="Reports\ProductReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -302,6 +303,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductReport.resx">
+      <DependentUpon>ProductReport.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

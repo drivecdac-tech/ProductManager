@@ -10,7 +10,7 @@ namespace ProductManager.Views
         }
         private void OpenReports_Click(object sender, RoutedEventArgs e)
         {
-            var reportWindow = new ReportWindow();
+            var reportWindow = new ReportWindow("Product");
             reportWindow.ShowDialog();
         }
     }
