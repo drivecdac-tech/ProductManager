@@ -1,0 +1,14 @@
+﻿<dx:DXWindow x:Class="ProductManager.Views.ReportWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing"
+             Title="Product Report"
+             Height="600"
+             Width="900">
+
+    <Grid>
+        <dxp:DocumentPreviewControl x:Name="reportViewer"/>
+    </Grid>
+
+</dx:DXWindow>
