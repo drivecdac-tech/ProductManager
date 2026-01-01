@@ -1,6 +1,8 @@
-﻿using DevExpress.XtraReports.UI;
+﻿using DevExpress.XtraPrinting;
+using DevExpress.XtraReports.UI;
 using ProductManager.Data;
 using System;
+using System.Drawing;
 using System.Linq;
 
 namespace ProductManager.Reports
@@ -13,18 +15,64 @@ namespace ProductManager.Reports
             {
                 DataSource = db.Products.ToList();
             }
+            var header = new PageHeaderBand
+            {
+                HeightF = 30
+            };
 
-            Bands.Add(new DetailBand());
+            XRLabel hName = new XRLabel
+            {
+                Text = "Product Name",
+                WidthF = 200,
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                Borders = BorderSide.All,
+                Padding = new PaddingInfo(5, 5, 0, 0)
+            };
 
-            XRLabel name = new XRLabel { WidthF = 200 };
+            XRLabel hPrice = new XRLabel
+            {
+                Text = "Price",
+                LeftF = 200,
+                WidthF = 100,
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                Borders = BorderSide.All,
+                TextAlignment = TextAlignment.MiddleRight,
+                Padding = new PaddingInfo(5, 5, 0, 0)
+            };
+            header.Controls.AddRange(new XRControl[] { hName, hPrice });
+            Bands.Add(header);
+
+            // ===== DETAIL (DATA ROWS) =====
+            var detail = new DetailBand
+            {
+                HeightF = 25
+            };
+
+            XRLabel name = new XRLabel
+            {
+                WidthF = 200,
+                Borders = BorderSide.All,
+                TextAlignment = TextAlignment.MiddleLeft,
+                Padding = new PaddingInfo(5, 5, 0, 0)
+            };
             name.ExpressionBindings.Add(
-                new ExpressionBinding("Text", "[Name]"));
+                new ExpressionBinding("BeforePrint", "Text", "[Name]"));
 
-            XRLabel price = new XRLabel { LeftF = 220 };
+            XRLabel price = new XRLabel
+            {
+                LeftF = 200,
+                WidthF = 100,
+                Borders = BorderSide.All,
+                TextAlignment = TextAlignment.MiddleRight,
+                Padding = new PaddingInfo(5, 5, 0, 0),
+                TextFormatString = "{0:C}"
+            };
             price.ExpressionBindings.Add(
-                new ExpressionBinding("Text", "[Price]"));
+                new ExpressionBinding("BeforePrint", "Text", "[Price]"));
 
-            Bands[0].Controls.AddRange(new XRControl[] { name, price });
-        }
+            detail.Controls.AddRange(new XRControl[] { name, price });
+            Bands.Add(detail);
+
+        } 
     }
 }
