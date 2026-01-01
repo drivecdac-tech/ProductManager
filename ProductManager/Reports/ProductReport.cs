@@ -24,6 +24,7 @@ namespace ProductManager.Reports
             {
                 Text = "Product Name",
                 WidthF = 200,
+                HeightF=30,
                 Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 Borders = BorderSide.All,
                 Padding = new PaddingInfo(5, 5, 0, 0)
@@ -34,6 +35,7 @@ namespace ProductManager.Reports
                 Text = "Price",
                 LeftF = 200,
                 WidthF = 100,
+                HeightF = 30,
                 Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 Borders = BorderSide.All,
                 TextAlignment = TextAlignment.MiddleRight,
@@ -51,6 +53,7 @@ namespace ProductManager.Reports
             XRLabel name = new XRLabel
             {
                 WidthF = 200,
+                HeightF = 25,
                 Borders = BorderSide.All,
                 TextAlignment = TextAlignment.MiddleLeft,
                 Padding = new PaddingInfo(5, 5, 0, 0)
@@ -62,6 +65,7 @@ namespace ProductManager.Reports
             {
                 LeftF = 200,
                 WidthF = 100,
+                HeightF = 25,
                 Borders = BorderSide.All,
                 TextAlignment = TextAlignment.MiddleRight,
                 Padding = new PaddingInfo(5, 5, 0, 0),

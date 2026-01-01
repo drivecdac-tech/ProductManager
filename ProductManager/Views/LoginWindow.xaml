@@ -34,6 +34,7 @@
                 Height="35"
                 Width="100"
                 HorizontalAlignment="Center"
-                Click="Login_Click"/>
+                Click="Login_Click"
+                IsDefault="True"/>
     </Grid>
 </Window>
