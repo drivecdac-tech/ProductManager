@@ -2,18 +2,22 @@
 using DevExpress.XtraPrinting;
 using DevExpress.XtraReports.UI;
 using ProductManager.Data;
+using ProductManager.Models;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
+using System.Windows.Documents;
 
 namespace ProductManager.Reports
 {
     public class ProductReport : XtraReport
     {
-
         public ProductReport(DateTime? fromDate, DateTime? toDate)
         {
+            List<Product> data;
+
             using (var db = new AppDbContext())
             {
                 var query = db.Products.AsQueryable();
@@ -24,15 +28,20 @@ namespace ProductManager.Reports
                 if (toDate.HasValue)
                     query = query.Where(p => p.CreatedDate <= toDate.Value);
 
-                DataSource = query.ToList();
+                data = query.ToList();
             }
+            DataSource = data;
+
             PaperKind = DXPaperKind.A4;
             Margins = new Margins(40, 40, 40, 40);
 
             var reportHeader = new ReportHeaderBand { HeightF = 80 };
             var pageHeader = new PageHeaderBand { HeightF = 30 };
             var detail = new DetailBand { HeightF = 30 };
-
+            if (!data.Any())
+            {
+                detail.Visible = false;
+            }
             Bands.AddRange(new Band[] { reportHeader, pageHeader, detail });
 
             reportHeader.Controls.Add(new XRLabel
@@ -99,7 +108,7 @@ namespace ProductManager.Reports
             row.Cells.Add(CreateCell("Name", "[Name]", isHeader));
             row.Cells.Add(CreateCell("Price", "[Price]", isHeader));
             row.Cells.Add(CreateCell("Stock", "[Stock]", isHeader));
-            row.Cells.Add(CreateCell("Created Date","FormatString('{0:dd-MMM-yyyy}', [CreatedDate])",isHeader));
+            row.Cells.Add(CreateCell("Created Date", "FormatString('{0:dd-MMM-yyyy}', [CreatedDate])", isHeader));
             table.Rows.Add(row);
             return table;
         }
