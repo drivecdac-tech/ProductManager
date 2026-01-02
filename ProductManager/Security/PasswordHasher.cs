@@ -50,12 +50,11 @@ namespace ProductManager.Security
         }
         private static bool SlowEquals(byte[] a, byte[] b)
         {
-            if (a.Length != b.Length) return false;
-
+            if (a.Length != b.Length)
+                return false;
             int diff = 0;
-            for (int i = 0; i < a.Length; i++)
-                diff |= a[i] ^ b[i];
-
+            for (int i = 0; i < a.Length; i++) //if (a[i] != b[i])
+            diff |= a[i] ^ b[i]; //diff = 1;
             return diff == 0;
         }
     }

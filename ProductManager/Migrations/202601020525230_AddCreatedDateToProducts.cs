@@ -3,14 +3,16 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class AddCreatedDateToProducts : DbMigration
     {
         public override void Up()
         {
+            AddColumn("dbo.Products", "CreatedDate", c => c.DateTime(nullable: false));
         }
         
         public override void Down()
         {
+            DropColumn("dbo.Products", "CreatedDate");
         }
     }
 }

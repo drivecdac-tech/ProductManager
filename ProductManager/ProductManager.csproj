@@ -226,16 +226,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="Migrations\202601010931443_InitialCreate.cs" />
-    <Compile Include="Migrations\202601010931443_InitialCreate.Designer.cs">
-      <DependentUpon>202601010931443_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202601010959598_InitialCreate1.cs" />
-    <Compile Include="Migrations\202601010959598_InitialCreate1.Designer.cs">
-      <DependentUpon>202601010959598_InitialCreate1.cs</DependentUpon>
+    <Compile Include="Migrations\202601020525230_AddCreatedDateToProducts.cs" />
+    <Compile Include="Migrations\202601020525230_AddCreatedDateToProducts.Designer.cs">
+      <DependentUpon>202601020525230_AddCreatedDateToProducts.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Orders.cs" />
-    <Compile Include="Reports\OrdersReport.cs" />
     <Compile Include="Reports\ProductReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -246,7 +241,6 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
-    <Compile Include="ViewModels\ReportViewModel.cs" />
     <Compile Include="Views\ReportWindow.xaml.cs">
       <DependentUpon>ReportWindow.xaml</DependentUpon>
     </Compile>
@@ -294,11 +288,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202601010931443_InitialCreate.resx">
-      <DependentUpon>202601010931443_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202601010959598_InitialCreate1.resx">
-      <DependentUpon>202601010959598_InitialCreate1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202601020525230_AddCreatedDateToProducts.resx">
+      <DependentUpon>202601020525230_AddCreatedDateToProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -5,10 +5,41 @@
              xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing"
              Title="Product Report"
              Height="600"
-             Width="900">
+             Width="900"
+             WindowStartupLocation="CenterScreen">
 
-    <Grid>
+    <DockPanel>
+
+        <!-- 🔹 FILTER BAR (TOP) -->
+        <Border DockPanel.Dock="Top"
+                Background="#F5F5F5"
+                Padding="10"
+                BorderBrush="#CCCCCC"
+                BorderThickness="0,0,0,1">
+
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center">
+
+                <TextBlock Text="From:"
+                           VerticalAlignment="Center"
+                           Margin="0,0,5,0"/>
+
+                <DatePicker x:Name="dpFrom"
+                            Width="130"
+                            SelectedDateChanged="DateChanged"/>
+
+                <TextBlock Text="To:"
+                           Margin="15,0,5,0"
+                           VerticalAlignment="Center"/>
+
+                <DatePicker x:Name="dpTo"
+                            Width="130"
+                            SelectedDateChanged="DateChanged"/>
+            </StackPanel>
+        </Border>
+
+        <!-- 🔹 REPORT PREVIEW -->
         <dxp:DocumentPreviewControl x:Name="Preview"/>
-    </Grid>
+    </DockPanel>
 
 </dx:DXWindow>

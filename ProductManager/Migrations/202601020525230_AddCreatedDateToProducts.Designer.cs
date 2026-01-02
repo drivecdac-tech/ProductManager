@@ -7,13 +7,13 @@ namespace ProductManager.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class InitialCreate1 : IMigrationMetadata
+    public sealed partial class AddCreatedDateToProducts : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddCreatedDateToProducts));
         
         string IMigrationMetadata.Id
         {
-            get { return "202601010959598_InitialCreate1"; }
+            get { return "202601020525230_AddCreatedDateToProducts"; }
         }
         
         string IMigrationMetadata.Source

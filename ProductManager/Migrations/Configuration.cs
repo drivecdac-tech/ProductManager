@@ -44,11 +44,10 @@
 
             context.SaveChanges();
             context.Products.AddOrUpdate(
-        p => p.Name,
-        new Product { Name = "Laptop", Price = 80000 },
-        new Product { Name = "Mouse", Price = 500 },
-        new Product { Name = "Keyboard", Price = 1500 }
-    );
+                new Product { Name = "Laptop", Price = 1200, Stock = 15, CreatedDate = DateTime.Now },
+                new Product { Name = "Mouse", Price = 25, Stock = 120, CreatedDate = DateTime.Today.AddDays(-2) },
+                new Product { Name = "Keyboard", Price = 75, Stock = 40, CreatedDate = DateTime.Today.AddDays(-5) }
+            );
             context.SaveChanges();
 
             // Orders

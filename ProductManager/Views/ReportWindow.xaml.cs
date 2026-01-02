@@ -1,21 +1,27 @@
 ﻿using DevExpress.Xpf.Core;
-using DevExpress.XtraReports.UI;
 using ProductManager.Reports;
-using System.Windows;
+using System;
+using System.Windows.Controls;
 
 namespace ProductManager.Views
 {
     public partial class ReportWindow : DXWindow
     {
-        public ReportWindow(string reportType)
+        public ReportWindow()
         {
             InitializeComponent();
-
-            XtraReport report = new ProductReport();
-            report.CreateDocument();
-
-            Preview.DocumentSource = report;
+            LoadReport(null, null);
+        }
+        private void DateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            LoadReport(dpFrom.SelectedDate, dpTo.SelectedDate);
         }
 
+        private void LoadReport(DateTime? from, DateTime? to)
+        {
+            var report = new ProductReport(from, to);
+            report.CreateDocument();
+            Preview.DocumentSource = report;
+        }
     }
 }

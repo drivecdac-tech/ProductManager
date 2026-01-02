@@ -19,7 +19,7 @@ namespace ProductManager.ViewModels
 
             ShowReportCommand = new RelayCommand(() =>
             {
-                new ReportWindow("Product").ShowDialog();
+                new ReportWindow().ShowDialog();
             });
         }
     }

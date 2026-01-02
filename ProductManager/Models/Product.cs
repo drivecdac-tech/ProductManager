@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProductManager.Models
 {
@@ -11,5 +12,6 @@ namespace ProductManager.Models
 
         public decimal Price { get; set; }
         public int Stock { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }
