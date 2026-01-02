@@ -1,11 +1,8 @@
-﻿using ProductManager.Models;
-using ProductManager.Security;
-using ProductManager.Views;
-using System;
-using System.Diagnostics;
+﻿using ANewReport.Models;
+using ANewReport.Views;
 using System.Windows;
 
-namespace ProductManager
+namespace ANewReport
 {
     public partial class App : Application
     {
