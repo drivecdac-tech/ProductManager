@@ -1,32 +1,24 @@
 ﻿using ANewReport.Services;
+using ANewReport.ViewModels;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace ANewReport.Views
 {
-    public partial class LoginWindow : Window
+    public partial class LoginWindow : Window,IWindowService
     {
         public LoginWindow()
         {
             InitializeComponent();
+            DataContext= new LoginViewModel(this);
         }
 
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            var authservice= new AuthService();
-            var user = authservice.Login(txtUsername.Text, txtPassword.Password);
-            if(user != null)
+            if(DataContext is LoginViewModel viewModel)
             {
-                App.CurrentUser = user;
-                var mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
+                viewModel.Password = pwdBox.Password;
             }
-            else
-            {
-                MessageBox.Show("Invalid username or password.","Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
         }
     }
 }
