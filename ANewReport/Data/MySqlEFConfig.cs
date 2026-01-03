@@ -1,11 +1,10 @@
 ﻿using MySql.Data.EntityFramework;
 using MySql.Data.MySqlClient;
 using System.Data.Entity;
-using System.Windows.Data;
 
 namespace ANewReport.Data
 {
-    public class MySqlEFConfig: DbConfiguration
+    public class MySqlEFConfig : DbConfiguration
     {
         MySqlEFConfig()
         {

@@ -5,12 +5,21 @@ using System.Data.Entity;
 namespace ANewReport.Data
 {
     [DbConfigurationType(typeof(MySqlEFConfiguration))]//MySQL EF6 Configuration
-    public class AppDbContext:DbContext
+    public class AppDbContext : DbContext
     {
-        public AppDbContext():base("name=AppDbContext"){ }//Connection string name in App.config
+        public AppDbContext() : base("name=AppDbContext") { }//Connection string name in App.config
 
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Employee>()
+                .Property(e => e.Salary)
+                .HasPrecision(18, 2);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

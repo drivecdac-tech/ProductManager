@@ -4,10 +4,11 @@
     using ANewReport.Models;
     using ANewReport.Security;
     using System;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<AppDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ANewReport.Data.AppDbContext>
     {
         public Configuration()
         {
@@ -16,33 +17,64 @@
 
         protected override void Seed(AppDbContext context)
         {
+            // ---------- ROLES ----------
             if (!context.Roles.Any())
             {
-                context.Roles.AddOrUpdate(
-                    new Role { Name = "Admin" },
-                    new Role { Name = "User" }
-                );
+                context.Roles.AddRange(new[]
+                {
+            new Role { Name = "Admin" },
+            new Role { Name = "User" }
+        });
+
+                context.SaveChanges();
             }
 
-            context.SaveChanges();
-
+            // ---------- USERS ----------
             if (!context.Users.Any())
             {
-                var adminRole = context.Roles.First(r => r.Name == "Admin");
+                var adminRole = context.Roles.Single(r => r.Name == "Admin");
 
                 context.Users.Add(new User
                 {
                     Username = "admin",
-                    PasswordHash = PasswordHasher.Hash("admin123"),
+                    PasswordHash = PasswordHasher.Hash("admin123"), // make sure MaxLength >= 255
                     RoleId = adminRole.Id
                 });
+
+                context.SaveChanges();
             }
-            context.SaveChanges();
-            context.Employees.AddOrUpdate(
-                new Employee {Name="Lobhas",City="Kalyan",Salary=200000,HireDate=DateTime.Now},
-                new Employee {Name="Luffy",City="East Blue",Salary=25000000,HireDate=DateTime.Today.AddDays(-100)},
-                new Employee {Name="Zoro",City="North Blue",Salary=22000000,HireDate=DateTime.Today.AddDays(-70) });
-            context.SaveChanges();
+
+            // ---------- EMPLOYEES ----------
+            if (!context.Employees.Any())
+            {
+                context.Employees.AddRange(new[]
+                {
+            new Employee
+            {
+                Name = "Lobhas",
+                City = "Kalyan",
+                Salary = 200000m,
+                HireDate = DateTime.Now
+            },
+            new Employee
+            {
+                Name = "Luffy",
+                City = "East Blue",
+                Salary = 250000m,
+                HireDate = DateTime.Today.AddDays(-100)
+            },
+            new Employee
+            {
+                Name = "Zoro",
+                City = "North Blue",
+                Salary = 220000m,
+                HireDate = DateTime.Today.AddDays(-70)
+            }
+        });
+
+                context.SaveChanges();
+            }
         }
+
     }
 }

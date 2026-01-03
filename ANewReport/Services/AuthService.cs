@@ -10,11 +10,11 @@ namespace ANewReport.Services
     {
         public User Login(string username, string password)
         {
-            using(var context = new AppDbContext())
+            using (var context = new AppDbContext())
             {
                 var user = context.Users.Include(u => u.Role)
                     .FirstOrDefault(u => u.Username == username);
-                if(user==null)
+                if (user == null)
                     return null;
                 return PasswordHasher.Verify(password, user.PasswordHash) ? user : null;
             }
