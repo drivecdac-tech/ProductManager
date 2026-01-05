@@ -109,6 +109,15 @@
     <Reference Include="DevExpress.Utils.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <HintPath>..\packages\DevExpress.Utils.25.2.3\lib\net462\DevExpress.Utils.v25.2.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.DocumentViewer.v25.2.Core, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\DevExpress 25.2\Components\Bin\Framework\DevExpress.Xpf.DocumentViewer.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Printing.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\DevExpress 25.2\Components\Bin\Framework\DevExpress.Xpf.Printing.v25.2.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Xpo.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <HintPath>..\packages\DevExpress.Xpo.25.2.3\lib\net462\DevExpress.Xpo.v25.2.dll</HintPath>
     </Reference>
@@ -120,6 +129,10 @@
     </Reference>
     <Reference Include="DevExpress.XtraReports.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <HintPath>..\packages\DevExpress.Reporting.Core.25.2.3\lib\net462\DevExpress.XtraReports.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v25.2.Web, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\DevExpress 25.2\Components\Bin\Framework\DevExpress.XtraReports.v25.2.Web.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -179,6 +192,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
     </Reference>
@@ -234,7 +248,9 @@
       <DependentUpon>202601030720442_namechange.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Reports\EmployeeReport.cs" />
+    <Compile Include="Reports\EmployeeReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Services\IWindowService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
@@ -297,6 +313,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EmployeeReport.resx">
+      <DependentUpon>EmployeeReport.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
