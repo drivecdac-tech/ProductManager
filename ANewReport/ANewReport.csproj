@@ -247,8 +247,18 @@
     <Compile Include="Migrations\202601030720442_namechange.Designer.cs">
       <DependentUpon>202601030720442_namechange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202601050639319_NewUser.cs" />
+    <Compile Include="Migrations\202601050639319_NewUser.Designer.cs">
+      <DependentUpon>202601050639319_NewUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Reports\EmployeeReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MainReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\UserReport.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Services\IWindowService.cs" />
@@ -310,12 +320,21 @@
     <EmbeddedResource Include="Migrations\202601030720442_namechange.resx">
       <DependentUpon>202601030720442_namechange.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202601050639319_NewUser.resx">
+      <DependentUpon>202601050639319_NewUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\EmployeeReport.resx">
       <DependentUpon>EmployeeReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MainReport.resx">
+      <DependentUpon>MainReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\UserReport.resx">
+      <DependentUpon>UserReport.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -22,7 +22,7 @@ namespace ANewReport.Views
 
         private void LoadReport(DateTime? from, DateTime? to)
         {
-            var report = new EmployeeReport(from, to);
+            var report = new MainReport(from, to);
             report.CreateDocument();
             Preview.DocumentSource = report;
         }

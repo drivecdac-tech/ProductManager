@@ -33,14 +33,19 @@
             if (!context.Users.Any())
             {
                 var adminRole = context.Roles.Single(r => r.Name == "Admin");
-
-                context.Users.Add(new User
+                var userRole = context.Roles.Single(r => r.Name == "User");
+                context.Users.AddRange(new[] {
+                    new User
                 {
                     Username = "admin",
                     PasswordHash = PasswordHasher.Hash("admin123"), // make sure MaxLength >= 255
                     RoleId = adminRole.Id
+                },new User{
+                    Username = "user",
+                    PasswordHash = PasswordHasher.Hash("user123"), // make sure MaxLength >= 255
+                    RoleId = userRole.Id
+                }
                 });
-
                 context.SaveChanges();
             }
 
